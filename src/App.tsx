@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { states } from './data';
 import Select from 'react-select';
 import { isBrowser } from 'react-device-detect';
-import { Icon } from '@iconify/react';
-import gearFill from '@iconify-icons/bi/gear-fill';
-import image from './assets/states.png';
+import texas from './assets/texas.png';
 import {
   commafy,
   findSubCategoriesList,
@@ -12,12 +10,20 @@ import {
   showResults,
 } from './helpers';
 import { ResultType, CategoryType, Ideals } from './types';
-import './App.css';
+
+const selectStyle = {
+  container: (provided: any) => ({ ...provided, width: '70%' }),
+  option: (provided: any) => ({ ...provided }),
+  menu: (provided: any) => ({ ...provided, padding: 10 }),
+};
+
+const BLACK = '#1E1E1E';
+const WHITE = '#FAFAFA';
+const GRAY = '#D7D7D7';
+const RED = '#BF0D3E';
 
 export default function App() {
-  const [watchlist, setWatchlist] = useState<string[]>(['TEXAS']);
-  const [showSettings, setShowSettings] = useState<boolean>(false);
-  const [onlyWatchlist, setOnlyWatchlist] = useState<boolean>(false);
+  const [watchlist] = useState<string[]>(['TEXAS']);
   const [category, setCategory] = useState<CategoryType | undefined>();
   const [subCategory, setSubCategory] = useState<CategoryType | undefined>();
   const [ideals, setIdeals] = useState<Ideals>({
@@ -45,7 +51,7 @@ export default function App() {
 
     let text = 'Ranked';
 
-    if (['people'].includes(category.value)) {
+    if (['people', 'govt'].includes(category.value)) {
       text = 'Not Ranked';
     }
 
@@ -61,7 +67,6 @@ export default function App() {
           style={{
             display: 'flex',
             justifyContent: 'center',
-            marginBottom: 20,
           }}
         >
           <div>{text}</div>
@@ -71,7 +76,7 @@ export default function App() {
             name="ideal"
             value={ideal}
             onChange={e => {
-              const newIdeals = {
+              const newIdeals: any = {
                 ...ideals,
                 [subCategory.value]: e.target.value,
               };
@@ -95,108 +100,78 @@ export default function App() {
     );
   };
 
-  const renderSettings = () => {
-    return (
-      <div style={{}}>
-        <div
-          style={{
-            fontSize: 18,
-            fontWeight: 'bold',
-            marginBottom: 20,
-          }}
-        >
-          Settings
-        </div>
-        <div onClick={() => setOnlyWatchlist(!onlyWatchlist)}>
-          {`• ${
-            onlyWatchlist ? 'Show watchlist states only' : 'Show all states'
-          }`}
-        </div>
-      </div>
-    );
-  };
-
   const renderResults = (results: ResultType[]) => {
     if (!results) return null;
 
-    const elements = results
-      .filter(result =>
-        !onlyWatchlist || watchlist.includes(result[1]) ? true : false
-      )
-      .map((result, index) => {
-        // variables
-        const [rank, state, value] = result;
-        let stateLabel = state.replace(/_/g, ' ');
-        let valueLabel =
-          typeof value === 'object' ? JSON.stringify(value) : value;
-        const watchlistIndex = watchlist.indexOf(state);
+    const elements = results.map((result, index) => {
+      // variables
+      const [rank, state, value] = result;
+      let stateLabel = state.replace(/_/g, ' ');
+      let valueLabel =
+        typeof value === 'object' ? JSON.stringify(value) : value;
+      const watchlistIndex = watchlist.indexOf(state);
 
-        // value massaging
-        if (category.value === 'taxes') {
-          valueLabel = `${value} %`;
-        } else if (subCategory.value.includes('temp')) {
-          valueLabel = `${value} ℉`;
-        } else if (['snow', 'precipitation'].includes(subCategory.value)) {
-          valueLabel = `${value} in`;
-        } else if (
-          (subCategory.value.includes('price') ||
-            subCategory.value.includes('wage') ||
-            subCategory.value.includes('rent') ||
-            subCategory.value.includes('dollar') ||
-            subCategory.value.includes('mortgage') ||
-            subCategory.value.includes('cost')) &&
-          !subCategory.value.includes('index')
-        ) {
-          valueLabel = `$${commafy(value)}`;
-        } else if (subCategory.value === 'population') {
-          valueLabel = commafy(value);
-        } else if (subCategory.value === 'lockdowns') {
-          valueLabel = value.toFixed(1);
-        } else if (subCategory.value.includes('election')) {
-          // valueLabel = `${value.R}R / ${value.D}D`;
-          valueLabel = `R: ${value.R}%  D: ${value.D}%`;
-        } else if (subCategory.value === 'demos') {
-          const per = n => Math.round(n * 100);
-          valueLabel =
-            `W-${per(value.white)}, ` +
-            `B-${per(value.black)}, ` +
-            `H-${per(value.hispanic)} `;
-        }
+      // value massaging
+      if (category.value === 'taxes') {
+        valueLabel = `${value} %`;
+      } else if (subCategory.value.includes('temp')) {
+        valueLabel = `${value} ℉`;
+      } else if (['snow', 'precipitation'].includes(subCategory.value)) {
+        valueLabel = `${value} in`;
+      } else if (
+        (subCategory.value.includes('price') ||
+          subCategory.value.includes('wage') ||
+          subCategory.value.includes('rent') ||
+          subCategory.value.includes('dollar') ||
+          subCategory.value.includes('mortgage') ||
+          subCategory.value.includes('cost')) &&
+        !subCategory.value.includes('index')
+      ) {
+        valueLabel = `$${commafy(value)}`;
+      } else if (subCategory.value === 'population') {
+        valueLabel = commafy(value);
+      } else if (subCategory.value === 'lockdowns') {
+        valueLabel = value.toFixed(1);
+      } else if (subCategory.value.includes('election')) {
+        // valueLabel = `${value.R}R / ${value.D}D`;
+        valueLabel = `R: ${value.R}%  D: ${value.D}%`;
+      } else if (subCategory.value === 'demos') {
+        const per = n => Math.round(n * 100);
+        valueLabel =
+          `W-${per(value.white)}, ` +
+          `B-${per(value.black)}, ` +
+          `H-${per(value.hispanic)} `;
+      }
 
-        return (
-          <div
-            key={index}
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              width: '90%',
-              backgroundColor:
-                watchlistIndex > -1
-                  ? '#ADD8E6'
-                  : index % 2 === 0
-                  ? '#E8E8E8'
-                  : null,
-              marginBottom: 5,
-              padding: 2,
-            }}
-            onClick={() => {
-              const watchlistTemp =
-                watchlistIndex === -1
-                  ? [...watchlist, state]
-                  : [
-                      ...watchlist.slice(0, watchlistIndex),
-                      ...watchlist.slice(watchlistIndex + 1),
-                    ];
-              localStorage.setItem('watchlist', JSON.stringify(watchlistTemp));
-              setWatchlist(watchlistTemp);
-            }}
-          >
-            <div>{rank}</div>
-            <div>{stateLabel}</div>
-            <div style={{ whiteSpace: 'pre' }}>{valueLabel}</div>
-          </div>
-        );
-      });
+      return (
+        <div
+          key={index}
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '90%',
+            paddingTop: 8,
+            paddingRight: 20,
+            paddingBottom: 8,
+            paddingLeft: 20,
+            fontSize: 16,
+
+            background:
+              watchlistIndex > -1 ? RED : index % 2 === 0 ? GRAY : 'initial',
+            color:
+              watchlistIndex > -1
+                ? WHITE
+                : index % 2 === 0
+                ? 'initial'
+                : 'initial',
+          }}
+        >
+          <div>{rank}</div>
+          <div>{stateLabel}</div>
+          <div style={{ whiteSpace: 'pre' }}>{valueLabel}</div>
+        </div>
+      );
+    });
 
     return (
       <div
@@ -204,76 +179,64 @@ export default function App() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          width: '75%',
+          overflowY: 'scroll',
+          overflowX: 'hidden',
+          height: '66%',
         }}
       >
+        {renderHowRanked()}
         {elements}
       </div>
     );
   };
 
   const renderImage = () => {
-    return (
-      <img
-        src={image}
-        alt=""
-        style={{
-          height: '40%',
-          width: '100%',
-          marginTop: 50,
-        }}
-      />
-    );
-  };
-
-  const selectStyle = {
-    container: (provided, state) => ({
-      ...provided,
-      marginBottom: 20,
-    }),
-    option: (provided, state) => ({ ...provided }),
-    menu: (provided, state) => ({
-      ...provided,
-      padding: 10,
-    }),
+    return <img src={texas} alt="" style={{ width: '100%' }} />;
   };
 
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        margin: 'auto',
-        padding: 20,
-        paddingTop: 40,
-        overflow: isBrowser ? 'scroll' : 'visible',
-        width: isBrowser ? window.innerWidth * 0.25 : 'auto',
-        height: isBrowser ? window.innerHeight * 0.95 : 'auto',
-        border: isBrowser ? '2px solid #787878' : 'none',
-        borderRadius: 10,
+        width: '100vw',
+        backgroundColor: '#F0F0F0',
       }}
     >
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
           alignItems: 'center',
-          marginBottom: 20,
+          gap: 30,
+          margin: 'auto',
+          paddingTop: 60,
+          paddingRight: 20,
+          paddingBottom: 40,
+          paddingLeft: 20,
+          overflow: isBrowser ? 'scroll' : 'visible',
+          width: isBrowser ? 400 : '100vw',
+          height: isBrowser ? 850 : '100vh',
+          border: isBrowser ? '2px solid #787878' : 'none',
+          borderRadius: 10,
+          maxWidth: '100vw',
+          overflowX: 'hidden',
+          fontFamily: 'Archivo Black, sans-serif',
+          color: BLACK,
+          backgroundColor: WHITE,
         }}
       >
-        <div />
-        <div style={{ fontSize: 30, fontWeight: 'bold' }}>STATE SHOWDOWN</div>
-        <Icon
-          icon={gearFill}
-          style={{ fontSize: 20 }}
-          onClick={() => setShowSettings(!showSettings)}
-        />
-      </div>
+        <div
+          style={{
+            fontWeight: 'bold',
+            fontFamily: 'Anton, sans-serif',
+            textAlign: 'center',
+            paddingTop: 20,
+          }}
+        >
+          <div style={{ fontSize: 50 }}>STATE SHOWDOWN</div>
+        </div>
 
-      <div
-        style={{
-          display: showSettings ? 'none' : 'initial',
-        }}
-      >
         <Select
           styles={selectStyle}
           placeholder="Select a Category"
@@ -301,12 +264,8 @@ export default function App() {
           />
         )}
 
-        {renderHowRanked()}
-
         {results ? renderResults(results) : renderImage()}
       </div>
-
-      {showSettings && renderSettings()}
     </div>
   );
 }

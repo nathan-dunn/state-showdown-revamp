@@ -44,7 +44,7 @@ export const findCategories = (
 ): { label: string; value: string }[] => {
   const statesList = Object.keys(states);
   const categoriesList = Object.keys(states[statesList[0]]);
-  const categories = categoriesList.map(category => ({
+  const categories = categoriesList.sort().map(category => ({
     label: category.toUpperCase().replace(/_/g, ' '),
     value: category,
   }));
