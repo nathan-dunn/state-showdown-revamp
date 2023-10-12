@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { states } from './data';
 import Select from 'react-select';
 import { isBrowser } from 'react-device-detect';
-import texas from './assets/texas.png';
 import {
   commafy,
   findSubCategoriesList,
@@ -10,9 +9,11 @@ import {
   showResults,
 } from './helpers';
 import { ResultType, CategoryType, Ideals } from './types';
+import texas from './assets/images/texas.png';
+import paper from './assets/images/paper.jpg';
 
 const selectStyle = {
-  container: (provided: any) => ({ ...provided, width: '70%' }),
+  container: (provided: any) => ({ ...provided, width: '70%', padding: 10 }),
   option: (provided: any) => ({ ...provided }),
   menu: (provided: any) => ({ ...provided, padding: 10 }),
 };
@@ -44,6 +45,27 @@ export default function App() {
     ideals
   );
 
+  const renderTitle = () => {
+    return (
+      <div
+        style={{
+          fontFamily: `'TEXAS TANGO EXTRA ROTH PERSONAL', sans-serif`,
+          fontSize: 75,
+          textAlign: 'center',
+          lineHeight: 1.25,
+          padding: 10,
+        }}
+      >
+        <div style={{}}>State</div>
+        <div style={{}}>Showdown</div>
+      </div>
+    );
+  };
+
+  const renderImage = () => {
+    return <img src={texas} alt="" style={{ width: '90%', padding: 10 }} />;
+  };
+
   const renderHowRanked = () => {
     if (!category || !subCategory) {
       return null;
@@ -51,11 +73,11 @@ export default function App() {
 
     let text = 'Ranked';
 
-    if (['people', 'govt'].includes(category.value)) {
+    if (['govt'].includes(category.value)) {
       text = 'Not Ranked';
     }
 
-    if (['governor', 'senate'].includes(subCategory.value)) {
+    if (['avg fica score', 'governor', 'senate'].includes(subCategory.value)) {
       text = 'Sorted Not Ranked';
     }
 
@@ -144,62 +166,68 @@ export default function App() {
       }
 
       return (
-        <div
+        <li
           key={index}
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             width: '90%',
-            paddingTop: 8,
+            paddingTop: 6,
             paddingRight: 20,
-            paddingBottom: 8,
+            paddingBottom: 6,
             paddingLeft: 20,
             fontSize: 16,
+            marginTop: 0,
+            marginBottom: 0,
 
             background:
-              watchlistIndex > -1 ? RED : index % 2 === 0 ? GRAY : 'initial',
-            color:
-              watchlistIndex > -1
-                ? WHITE
-                : index % 2 === 0
-                ? 'initial'
-                : 'initial',
+              watchlistIndex > -1 ? RED : index % 2 === 0 ? GRAY : WHITE,
+            color: watchlistIndex > -1 ? WHITE : BLACK,
+            opacity: watchlistIndex > -1 ? 1 : '0.8',
           }}
         >
           <div>{rank}</div>
           <div>{stateLabel}</div>
           <div style={{ whiteSpace: 'pre' }}>{valueLabel}</div>
-        </div>
+        </li>
       );
     });
 
     return (
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '75%',
+          width: '100%',
+          height: '100%',
           overflowY: 'scroll',
-          overflowX: 'hidden',
-          height: '66%',
         }}
       >
         {renderHowRanked()}
-        {elements}
+
+        <ul
+          style={{
+            height: '90%',
+            width: '80%',
+            overflowY: 'scroll',
+            overflowX: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            borderRadius: 10,
+          }}
+        >
+          {elements}
+        </ul>
       </div>
     );
-  };
-
-  const renderImage = () => {
-    return <img src={texas} alt="" style={{ width: '100%' }} />;
   };
 
   return (
     <div
       style={{
+        display: 'flex',
+        justifyContent: 'flex-start',
         width: '100vw',
-        backgroundColor: '#F0F0F0',
+        paddingTop: isBrowser ? 20 : 0,
       }}
     >
       <div
@@ -209,62 +237,58 @@ export default function App() {
           justifyContent: 'flex-start',
           alignItems: 'center',
           gap: 30,
-          margin: 'auto',
-          paddingTop: 60,
-          paddingRight: 20,
-          paddingBottom: 40,
-          paddingLeft: 20,
-          overflow: isBrowser ? 'scroll' : 'visible',
+          height: isBrowser ? '80vh' : '100vh',
           width: isBrowser ? 400 : '100vw',
-          height: isBrowser ? 850 : '100vh',
-          border: isBrowser ? '2px solid #787878' : 'none',
+          margin: 'auto',
+          padding: 20,
+          paddingTop: 60,
           borderRadius: 10,
-          maxWidth: '100vw',
-          overflowX: 'hidden',
-          fontFamily: 'Archivo Black, sans-serif',
+          fontFamily: `Mf Texas Spring, Courier New, Archivo Black, sans-serif`,
+          fontWeight: 900,
           color: BLACK,
-          backgroundColor: WHITE,
+          background: `url(${paper})`,
+          backgroundSize: 'cover',
         }}
       >
         <div
           style={{
-            fontWeight: 'bold',
-            fontFamily: 'Anton, sans-serif',
-            textAlign: 'center',
-            paddingTop: 20,
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
         >
-          <div style={{ fontSize: 50 }}>STATE SHOWDOWN</div>
-        </div>
-
-        <Select
-          styles={selectStyle}
-          placeholder="Select a Category"
-          options={categories}
-          onChange={(cat: any) => {
-            if (!category || cat.value !== category.value) {
-              setCategory(cat);
-              setSubCategory(findSubCategoriesList(cat, states)[0]);
-            }
-          }}
-          isSearchable={false}
-        />
-
-        {category && (
           <Select
-            key={`my_unique_select_key__${subCategory}`}
-            value={subCategory || ''}
             styles={selectStyle}
-            placeholder="Select a Sub Category"
-            options={findSubCategoriesList(category, states)}
-            onChange={(sub: any) => {
-              setSubCategory(sub);
+            placeholder="Select"
+            options={categories}
+            onChange={(cat: any) => {
+              if (!category || cat.value !== category.value) {
+                setCategory(cat);
+                setSubCategory(findSubCategoriesList(cat, states)[0]);
+              }
             }}
             isSearchable={false}
           />
-        )}
 
-        {results ? renderResults(results) : renderImage()}
+          {results && (
+            <Select
+              key={`my_unique_select_key__${subCategory}`}
+              value={subCategory || ''}
+              styles={selectStyle}
+              placeholder="Select a Sub Category"
+              options={findSubCategoriesList(category, states)}
+              onChange={(sub: any) => {
+                setSubCategory(sub);
+              }}
+              isSearchable={false}
+            />
+          )}
+        </div>
+
+        {!results && renderTitle()}
+        {!results && renderImage()}
+        {results && renderResults(results)}
       </div>
     </div>
   );

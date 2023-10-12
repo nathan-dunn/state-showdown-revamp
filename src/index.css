@@ -70,3 +70,27 @@ button:focus-visible {
   }
 }
 
+
+
+@font-face {
+  font-family: 'TEXAS TANGO EXTRA ROTH PERSONAL';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: local('TEXAS TANGO EXTRA ROTH PERSONAL'),
+       url('./assets/fonts/TEXASTANGO EXTRA ROTH PERSONAL USE.ttf') format('ttf'),
+}
+
+@font-face {
+  font-family: 'Mf Texas Spring';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: local('Mf Texas Spring'),
+       url('./assets/fonts/TMf Texas Spring.ttf') format('ttf'),
+}
+
+
+
+
+
