@@ -1,4 +1,4 @@
-import { StatesCollection } from './types';
+import { StatesCollection } from '../types';
 
 export const states: StatesCollection = {
   ALABAMA: {
@@ -33,7 +33,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 1.6,
       precipitation: 58.3,
-      // avg_temp: 62.8,
+      avg_temp: 62.8,
       avg_summer_temp: 78.6,
       avg_winter_temp: 46.5,
     },
@@ -106,7 +106,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 74.5,
       precipitation: 22.5,
-      // avg_temp: 26.6,
+      avg_temp: 26.6,
       avg_summer_temp: 52.3,
       avg_winter_temp: 2.6,
     },
@@ -178,7 +178,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 0.3,
       precipitation: 13.6,
-      // avg_temp: 60.3,
+      avg_temp: 60.3,
       avg_summer_temp: 78.1,
       avg_winter_temp: 43.6,
     },
@@ -250,7 +250,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 5.2,
       precipitation: 50.6,
-      // avg_temp: 60.4,
+      avg_temp: 60.4,
       avg_summer_temp: 78.8,
       avg_winter_temp: 41.5,
     },
@@ -322,7 +322,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 0,
       precipitation: 22.2,
-      // avg_temp: 59.4,
+      avg_temp: 59.4,
       avg_summer_temp: 73.4,
       avg_winter_temp: 46.2,
     },
@@ -390,7 +390,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 19.1,
       precipitation: 15.9,
-      // avg_temp: 45.1,
+      avg_temp: 45.1,
       avg_summer_temp: 65.2,
       avg_winter_temp: 25.8,
     },
@@ -462,7 +462,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 40.5,
       precipitation: 50.3,
-      // avg_temp: 49,
+      avg_temp: 49,
       avg_summer_temp: 69.2,
       avg_winter_temp: 28.5,
     },
@@ -534,7 +534,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 20.2,
       precipitation: 45.7,
-      // avg_temp: 55.3,
+      avg_temp: 55.3,
       avg_summer_temp: 74.2,
       avg_winter_temp: 36.1,
     },
@@ -601,7 +601,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 0,
       precipitation: 54.5,
-      // avg_temp: 70.7,
+      avg_temp: 70.7,
       avg_summer_temp: 81,
       avg_winter_temp: 59.4,
     },
@@ -673,7 +673,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 0.7,
       precipitation: 50.7,
-      // avg_temp: 63.5,
+      avg_temp: 63.5,
       avg_summer_temp: 78.7,
       avg_winter_temp: 47.8,
     },
@@ -745,7 +745,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 0,
       precipitation: 63.7,
-      // avg_temp: 70,
+      avg_temp: 70,
       avg_summer_temp: 72.2,
       avg_winter_temp: 67.4,
     },
@@ -817,7 +817,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 19.2,
       precipitation: 18.9,
-      // avg_temp: 44.4,
+      avg_temp: 44.4,
       avg_summer_temp: 63.7,
       avg_winter_temp: 25.4,
     },
@@ -889,7 +889,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 24.6,
       precipitation: 39.2,
-      // avg_temp: 51.8,
+      avg_temp: 51.8,
       avg_summer_temp: 73.4,
       avg_winter_temp: 28.3,
     },
@@ -961,7 +961,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 25.9,
       precipitation: 41.7,
-      // avg_temp: 51.7,
+      avg_temp: 51.7,
       avg_summer_temp: 72.4,
       avg_winter_temp: 29.4,
     },
@@ -1033,7 +1033,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 34.9,
       precipitation: 34,
-      // avg_temp: 47.8,
+      avg_temp: 47.8,
       avg_summer_temp: 71.6,
       avg_winter_temp: 21.7,
     },
@@ -1105,7 +1105,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 14.7,
       precipitation: 28.9,
-      // avg_temp: 54.3,
+      avg_temp: 54.3,
       avg_summer_temp: 76.4,
       avg_winter_temp: 31.9,
     },
@@ -1177,7 +1177,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 12.5,
       precipitation: 48.9,
-      // avg_temp: 55.6,
+      avg_temp: 55.6,
       avg_summer_temp: 74.5,
       avg_winter_temp: 35.9,
     },
@@ -1245,7 +1245,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 0,
       precipitation: 60.1,
-      // avg_temp: 66.4,
+      avg_temp: 66.4,
       avg_summer_temp: 81.1,
       avg_winter_temp: 50.9,
     },
@@ -1317,7 +1317,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 61.8,
       precipitation: 42.2,
-      // avg_temp: 41,
+      avg_temp: 41,
       avg_summer_temp: 63.7,
       avg_winter_temp: 16.8,
     },
@@ -1389,7 +1389,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 20.2,
       precipitation: 44.5,
-      // avg_temp: 54.2,
+      avg_temp: 54.2,
       avg_summer_temp: 73.3,
       avg_winter_temp: 34.7,
     },
@@ -1461,7 +1461,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 43.8,
       precipitation: 47.7,
-      // avg_temp: 47.9,
+      avg_temp: 47.9,
       avg_summer_temp: 68,
       avg_winter_temp: 27.4,
     },
@@ -1533,7 +1533,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 51.1,
       precipitation: 32.8,
-      // avg_temp: 44.4,
+      avg_temp: 44.4,
       avg_summer_temp: 66.2,
       avg_winter_temp: 21.7,
     },
@@ -1605,7 +1605,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 54,
       precipitation: 27.3,
-      // avg_temp: 41.2,
+      avg_temp: 41.2,
       avg_summer_temp: 66.8,
       avg_winter_temp: 12.4,
     },
@@ -1677,7 +1677,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 0.9,
       precipitation: 59,
-      // avg_temp: 63.4,
+      avg_temp: 63.4,
       avg_summer_temp: 79.5,
       avg_winter_temp: 46.7,
     },
@@ -1749,7 +1749,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 17,
       precipitation: 42.2,
-      // avg_temp: 54.5,
+      avg_temp: 54.5,
       avg_summer_temp: 75.4,
       avg_winter_temp: 32.3,
     },
@@ -1821,7 +1821,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 38.1,
       precipitation: 15.3,
-      // avg_temp: 42.7,
+      avg_temp: 42.7,
       avg_summer_temp: 64.2,
       avg_winter_temp: 21.2,
     },
@@ -1893,7 +1893,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 25.9,
       precipitation: 23.6,
-      // avg_temp: 48.8,
+      avg_temp: 48.8,
       avg_summer_temp: 71.8,
       avg_winter_temp: 25.7,
     },
@@ -1960,7 +1960,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 21.8,
       precipitation: 9.5,
-      // avg_temp: 49.9,
+      avg_temp: 49.9,
       avg_summer_temp: 69,
       avg_winter_temp: 32.2,
     },
@@ -2027,6 +2027,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 60.8,
       precipitation: 43.4,
+      avg_temp: 43.8,
       avg_summer_temp: 65.5,
       avg_winter_temp: 21.1,
     },
@@ -2096,7 +2097,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 16.5,
       precipitation: 47.1,
-      // avg_temp: 52.7,
+      avg_temp: 52.7,
       avg_summer_temp: 72.2,
       avg_winter_temp: 33,
     },
@@ -2168,7 +2169,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 9.6,
       precipitation: 14.6,
-      // avg_temp: 53.4,
+      avg_temp: 53.4,
       avg_summer_temp: 71.4,
       avg_winter_temp: 36.1,
     },
@@ -2240,7 +2241,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 123.8,
       precipitation: 41.8,
-      // avg_temp: 45.4,
+      avg_temp: 45.4,
       avg_summer_temp: 66.5,
       avg_winter_temp: 23.3,
     },
@@ -2308,7 +2309,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 7.6,
       precipitation: 50.3,
-      // avg_temp: 59,
+      avg_temp: 59,
       avg_summer_temp: 75.7,
       avg_winter_temp: 42.1,
     },
@@ -2380,7 +2381,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 51.2,
       precipitation: 17.8,
-      // avg_temp: 40.4,
+      avg_temp: 40.4,
       avg_summer_temp: 66.6,
       avg_winter_temp: 12.2,
     },
@@ -2452,7 +2453,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 27.5,
       precipitation: 39.1,
-      // avg_temp: 50.7,
+      avg_temp: 50.7,
       avg_summer_temp: 70.9,
       avg_winter_temp: 29.5,
     },
@@ -2519,7 +2520,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 7.8,
       precipitation: 36.5,
-      // avg_temp: 59.6,
+      avg_temp: 59.6,
       avg_summer_temp: 79.6,
       avg_winter_temp: 39.1,
     },
@@ -2591,7 +2592,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 3,
       precipitation: 27.4,
-      // avg_temp: 48.4,
+      avg_temp: 48.4,
       avg_summer_temp: 63.7,
       avg_winter_temp: 34,
     },
@@ -2663,7 +2664,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 28.2,
       precipitation: 42.9,
-      // avg_temp: 48.8,
+      avg_temp: 48.8,
       avg_summer_temp: 68.6,
       avg_winter_temp: 28.4,
     },
@@ -2731,7 +2732,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 33.8,
       precipitation: 47.9,
-      // avg_temp: 50.1,
+      avg_temp: 50.1,
       avg_summer_temp: 68.8,
       avg_winter_temp: 31.4,
     },
@@ -2803,7 +2804,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 0.5,
       precipitation: 49.8,
-      // avg_temp: 62.4,
+      avg_temp: 62.4,
       avg_summer_temp: 78.4,
       avg_winter_temp: 46.1,
     },
@@ -2870,7 +2871,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 43.9,
       precipitation: 20.1,
-      // avg_temp: 45.2,
+      avg_temp: 45.2,
       avg_summer_temp: 69.9,
       avg_winter_temp: 19.5,
     },
@@ -2942,7 +2943,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 6.3,
       precipitation: 54.2,
-      // avg_temp: 57.6,
+      avg_temp: 57.6,
       avg_summer_temp: 75.6,
       avg_winter_temp: 39.1,
     },
@@ -3009,7 +3010,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 1.5,
       precipitation: 28.9,
-      // avg_temp: 64.8,
+      avg_temp: 64.8,
       avg_summer_temp: 81.1,
       avg_winter_temp: 47.9,
     },
@@ -3081,7 +3082,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 56.2,
       precipitation: 12.2,
-      // avg_temp: 48.6,
+      avg_temp: 48.6,
       avg_summer_temp: 69.6,
       avg_winter_temp: 28.2,
     },
@@ -3153,7 +3154,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 81.2,
       precipitation: 42.7,
-      // avg_temp: 42.9,
+      avg_temp: 42.9,
       avg_summer_temp: 65.1,
       avg_winter_temp: 19.4,
     },
@@ -3225,7 +3226,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 10.3,
       precipitation: 44.3,
-      // avg_temp: 55.1,
+      avg_temp: 55.1,
       avg_summer_temp: 73.2,
       avg_winter_temp: 36.8,
     },
@@ -3292,7 +3293,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 5,
       precipitation: 38.4,
-      // avg_temp: 48.3,
+      avg_temp: 48.3,
       avg_summer_temp: 63.8,
       avg_winter_temp: 33,
     },
@@ -3359,7 +3360,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 62,
       precipitation: 45.2,
-      // avg_temp: 51.8,
+      avg_temp: 51.8,
       avg_summer_temp: 70.2,
       avg_winter_temp: 32.8,
     },
@@ -3431,7 +3432,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 50.9,
       precipitation: 32.6,
-      // avg_temp: 43.1,
+      avg_temp: 43.1,
       avg_summer_temp: 66.8,
       avg_winter_temp: 17.2,
     },
@@ -3498,7 +3499,7 @@ export const states: StatesCollection = {
     weather: {
       snow: 91.4,
       precipitation: 12.9,
-      // avg_temp: 42,
+      avg_temp: 42,
       avg_summer_temp: 63.5,
       avg_winter_temp: 21.2,
     },

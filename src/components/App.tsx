@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { states } from './data';
+import { states } from '../data';
 import Select from 'react-select';
 import { isBrowser } from 'react-device-detect';
 import {
@@ -7,10 +7,10 @@ import {
   findSubCategoriesList,
   findCategories,
   showResults,
-} from './helpers';
-import { ResultType, CategoryType, Ideals } from './types';
-import texas from './assets/images/texas.png';
-import paper from './assets/images/paper.jpg';
+} from '../utils';
+import { ResultType, CategoryType, Ideals } from '../types';
+import texas from '../assets/images/texas.png';
+import paper from '../assets/images/paper.jpg';
 
 const selectStyle = {
   container: (provided: any) => ({ ...provided, width: '70%', padding: 10 }),
@@ -243,7 +243,7 @@ export default function App() {
           padding: 20,
           paddingTop: 60,
           borderRadius: 10,
-          fontFamily: `Mf Texas Spring, Courier New, Archivo Black, sans-serif`,
+          fontFamily: `Mf Texas Spring, Courier New, sans-serif`,
           fontWeight: 900,
           color: BLACK,
           background: `url(${paper})`,

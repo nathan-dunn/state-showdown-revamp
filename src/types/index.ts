@@ -51,6 +51,7 @@ export type StateType = {
   weather: {
     snow: number;
     precipitation: number;
+    avg_temp: number;
     avg_summer_temp: number;
     avg_winter_temp: number;
   };

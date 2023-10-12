@@ -5,7 +5,7 @@ import {
   StatesDictionary,
   ResultType,
   ValueType,
-} from './types';
+} from '../types';
 
 export const commafy = (x: number | string, round: boolean = false): string => {
   if (!x && x !== 0) return String(x);
